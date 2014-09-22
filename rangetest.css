@@ -1,0 +1,123 @@
+/*currently only prefixed for webkit*/
+body {
+	display: -webkit-flex;
+	-webkit-justify-content: center;
+	font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+	font-weight: 300;
+}
+.range-container {
+	width: 90%;
+	display: -webkit-flex;
+	-webkit-flex-wrap: wrap;
+	margin-top: 2rem;
+}
+
+.label-container {
+	-webkit-flex-basis: 100%;
+	display: -webkit-flex;
+	-webkit-flex-wrap: nowrap;
+	-webkit-justify-content: space-between;
+	margin-top: 2rem;
+}
+
+.label {
+	color: grey;
+	font-size: 1rem;
+	margin-top: 1rem;
+	text-align: center;
+	max-width: 3rem;
+}
+.slider-container {
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+.slider, .range-fill {
+	position: absolute;
+}
+
+.slider {
+	left: 0;
+	width: 100%;
+}
+
+.range-fill {
+	left: 0;
+	background-color: orange;
+	height: 16px;
+	pointer-events: none;
+	border-radius: 10px 0 0 10px;
+}
+
+input[type=range] {
+	-webkit-appearance: none;
+	-webkit-flex-basis: 100%;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 10rem;
+    height: 1rem;
+    background: #fff;
+    border: 2px solid orange;
+    border-radius: 10px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background: orange;
+    margin-top: -1.2rem;
+    border: 2px solid #fff;
+    cursor: pointer;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+/*MEDIA QUERIES*/
+
+@media (min-width:992px){ 
+	.range-container {
+		width: 70%;
+		max-width: 60rem;
+		display: -webkit-flex;
+		-webkit-flex-wrap: wrap;
+		margin-top: 5rem;
+	}
+	.label-container {
+		margin-top: 2rem;
+	}
+	.label {
+		font-size: 2rem;
+		max-width: 8rem;
+	}
+	.slider-container {
+		height: 2.5rem;
+	}
+	.range-fill {
+		border-radius: 20px 0 0 20px;
+		height: 40px;
+	}
+	input[type=range]::-webkit-slider-thumb {
+		width: 6rem;
+		height: 6rem;
+		margin-top: -1.7rem;
+	}
+	input[type=range]::-webkit-slider-runnable-track {
+		width: 10rem;
+		height: 2.5rem;
+		border-radius: 20px;
+	}
+}
+
+@media(min-width:1200px){
+	.range-container {
+		width: 80%;
+	}
+	.label {
+		max-width: 10rem;
+	}
+}

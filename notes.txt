@@ -1,0 +1,14 @@
+Things I need the slider to do still:
+
+1. Snap to each step, but also animate that so that it snaps smoothly
+2. If possible: always have the center of the ball be on the center of the label. If not the approximation I currently have is good enough
+3. Fill in the slider div behind the ball and make the width of the div be the correct size <<<<DONEish
+
+
+Functionality 
+- click on ball, drag to label, ball snaps to label/step
+- click on step area, ball snaps to closest label/step
+- orange fill div resizes with the ball while dragging, both backwards and forwards
+
+so first ball needs to be draggable, so should you make the steps small and then make it snap to closest say multiple of 10?
+FIRST you have to make it so that it CAN go backwards!
