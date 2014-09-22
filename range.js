@@ -3,6 +3,7 @@ $(document).ready(function(){
 	var $slider = $('.slider');
 
 	$slider.on("change click", function(event){
+		event.preventDefault();
 		$('.slider').hide().show(0);
 		if (event.which === 1){
 			var maxValue = $('.slider').prop('max');
