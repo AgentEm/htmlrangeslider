@@ -19,6 +19,6 @@ $(document).ready(function(){
 });
 
 //mousedown is no b/c you need to click down and off before it renders
-//mouseup is no b/c nothing changes until you unclick
+//mouseup is no b/c nothing changes until you unclick BUT this is also the closest to what we want
 //change is no because it breaks it
-//mousemove
+//mousemove is no becuase the range-fill will just go wherever I put my mouse last
