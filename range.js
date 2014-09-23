@@ -21,16 +21,6 @@ $(document).ready(function(){
         }
     }
 
-    function ohSnap(event) {
-        //Get the touch location
-        var touchX = event.originalEvent.changedTouches[0].clientX;
-        var frac = convertTouchXToFraction(touchX);
-
-        inputValue = Math.round(frac * max);
-        console.log("snap setting input", inputValue)
-        $(this).val(inputValue);
-    }
-
     function syncValAfterMove(event, snap) {
         var touchX = event.originalEvent.changedTouches[0].clientX;
         var frac = convertTouchXToFraction(touchX);
