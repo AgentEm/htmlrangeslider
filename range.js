@@ -28,13 +28,17 @@ $(document).ready(function(){
         lastSnap = (new Date()).getTime();
     };
     setLastSnap();
-    
+
     function syncValToXCreator(snap) {
         return function(event) {
             var epoch = (new Date()).getTime();
             var timeDiff = epoch - lastSnap;
+            // We don't handle any move events for THIS NUMBER of milliseconds after a snap.
+            // This is required because on iPad you get:
+            //  touchEnd -> 300ms delay -> mouseMove
+            var throttleMs = 400;
             console.log("timeDiff", timeDiff)
-            if (timeDiff > 100 &&
+            if (timeDiff > throttleMs &&
                   (event.which === 1 || event.which === 0)) {
 
                 console.log("move event", event)
