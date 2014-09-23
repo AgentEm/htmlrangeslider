@@ -33,7 +33,8 @@ $(document).ready(function(){
             inputValue = Math.round(inputValue);
         }
         // console.log("syncing val", inputValue)
-        $(this).val(inputValue);
+        $slider.val(inputValue);
+        changeHandler(event);
     }
 
     // Snap to closest value
@@ -52,5 +53,4 @@ $(document).ready(function(){
 
     // Modify range-fill as ball move.
 	$slider.on("touchmove mousemove click", syncValAfterMove);
-    $slider.on("change", changeHandler);
 });
