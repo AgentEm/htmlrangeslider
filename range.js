@@ -2,6 +2,8 @@ $(document).ready(function(){
 	
 	var $slider = $('input[type=range]');
  
+
+    // Mnap to closest value
 	$slider.on("touchend mousedown click", function(event) {
 	    var $this = $(this);
         var inputValue = parseInt(Math.round($this.val()));
@@ -32,8 +34,9 @@ $(document).ready(function(){
     //     $slider.hide().show(0);
     // });
 
+    // Modify range-fill as ball move.
 	$slider.on("touchmove mousemove click", function(event){
-        console.log(event.type);
+        console.log(event);
         console.log("val is", $(this).val());
       $slider.hide().show(0);
 	  if (event.which === 1 || event.which === 0){
