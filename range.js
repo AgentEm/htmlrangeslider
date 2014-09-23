@@ -55,5 +55,5 @@ $(document).ready(function(){
     // });
 
     // Modify range-fill as ball move.
-	$slider.on("touchmove mousemove click", syncValHandlerCreator());
+	$slider.on("touchmove mousemove click", syncValToXCreator());
 });
