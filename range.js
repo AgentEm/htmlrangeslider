@@ -12,6 +12,8 @@ $(document).ready(function(){
     var stepCount = parseInt($slider.attr('max'));
     // Snap to closest value
 	$slider.on("touchend mousedown click", function snap(event) {
+        $slider.hide().show(0);
+
         // Get the max
         if(event.type === 'touchend') {
             //Get the touch location
