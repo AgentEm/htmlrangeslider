@@ -23,6 +23,7 @@ $(document).ready(function(){
         
 	});
     $slider.on("change", function(event){
+        console.log("moved", event);
         $slider.hide().show(0);
     });
 
