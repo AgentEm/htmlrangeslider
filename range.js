@@ -64,15 +64,6 @@ $(document).ready(function(){
     // Snap to closest value
 	$slider.on("touchend mouseup click", syncValToXCreator("snap"));
 
-    // $slider.on("mousemove", function(event){
-    //     console.log("mouse moved", event);
-    //     $slider.hide().show(0);
-    // });
-    // $slider.on("touchmove", function(event){
-    //     console.log("touch moved", event);
-    //     $slider.hide().show(0);
-    // });
-
     // Modify range-fill as ball move.
 	$slider.on("touchmove mousemove click", syncValToXCreator());
 });
