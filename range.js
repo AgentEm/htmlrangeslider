@@ -12,6 +12,7 @@ $(document).ready(function(){
     }
 
     function changeHandler(value) {
+        console.log("change handled", value);
         if (lastChangeHandled !== value) {
             lastChangeHandled = value;
             var frac = value / max;
