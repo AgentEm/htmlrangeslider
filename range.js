@@ -9,9 +9,19 @@ $(document).ready(function(){
         return normalizedX / $slider.width();
     }
 
-    var stepCount = parseInt($slider.attr('max'));
-    // Snap to closest value
-	$slider.on("touchend mousedown click", function snap(event) {
+
+    function setRangeFill(event) {
+        console.log(event);
+        $slider.hide().show(0);
+        if (event.which === 1 || event.which === 0){
+            var touchX = event.originalEvent.changedTouches[0].clientX;
+            var frac = convertTouchXToFraction(touchX);
+            var rangeWidth = (frac * 100) + "%";
+            $('.range-fill').css("width", rangeWidth);
+        }
+    }
+
+    function ohSnap(event) {
         $slider.hide().show(0);
 
         // Get the max
@@ -23,9 +33,13 @@ $(document).ready(function(){
             inputValue = Math.round(frac * stepCount);
         }
         console.log("setting input", inputValue)
-    	$(this).val(inputValue);
-        
-	});
+        $(this).val(inputValue);
+        setRangeFill(event);
+    }
+    
+    var stepCount = parseInt($slider.attr('max'));
+    // Snap to closest value
+	$slider.on("touchend mousedown click", ohSnap);
 
     // $slider.on("mousemove", function(event){
     //     console.log("mouse moved", event);
@@ -37,14 +51,5 @@ $(document).ready(function(){
     // });
 
     // Modify range-fill as ball move.
-	$slider.on("touchmove mousemove click", function(event){
-        console.log(event);
-        $slider.hide().show(0);
-	    if (event.which === 1 || event.which === 0){
-            var touchX = event.originalEvent.changedTouches[0].clientX;
-            var frac = convertTouchXToFraction(touchX);
-	        var rangeWidth = (frac * 100) + "%";
-	        $('.range-fill').css("width", rangeWidth);
-	    }
-	});
+	$slider.on("touchmove mousemove click", setRangeFill);
 });
