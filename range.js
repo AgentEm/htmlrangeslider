@@ -29,7 +29,7 @@ $(document).ready(function(){
         inputValue = frac * max
         if (snap) {
             inputValue = Math.round(inputValue);
-        }        }
+        }
         console.log("syncing val", inputValue)
         $(this).val(inputValue);
     }
