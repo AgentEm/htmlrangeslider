@@ -20,7 +20,7 @@ $(document).ready(function(){
 
             inputValue = Math.round(frac * stepCount);
         }
-       
+        console.log("setting input", inputValue)
     	$(this).val(inputValue);
         
 	});
