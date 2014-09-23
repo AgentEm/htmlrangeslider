@@ -22,10 +22,15 @@ $(document).ready(function(){
             $slider.hide().show(0);
         }
     }
+    var lastSnap = (new Date()).getTime();
 
     function syncValToXCreator(snap) {
         return function(event) {
-            if (event.which === 1 || event.which === 0) {
+            var epoch = (new Date()).getTime();
+               
+            if (epoch - lastSnap > 100 &&
+                  (event.which === 1 || event.which === 0)) {
+
                 console.log("move event", event)
                 var touchX = event.originalEvent.clientX || event.originalEvent.changedTouches[0].clientX;
                 var frac = convertTouchXToFraction(touchX);
@@ -34,6 +39,7 @@ $(document).ready(function(){
                 inputValue = frac * max
                 if (snap) {
                     inputValue = Math.round(inputValue);
+                    lastSnap = (new Date()).getTime();
                 }
                 // console.log("syncing val", inputValue)
                 $slider.val(inputValue);
