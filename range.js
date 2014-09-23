@@ -34,6 +34,7 @@ $(document).ready(function(){
 
 	$slider.on("touchmove mousemove click", function(event){
         console.log(event.type);
+        console.log("val is", $(this).val());
       $slider.hide().show(0);
 	  if (event.which === 1 || event.which === 0){
 	    var maxValue = $slider.attr('max');
