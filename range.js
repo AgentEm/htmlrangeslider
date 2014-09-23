@@ -26,7 +26,8 @@ $(document).ready(function(){
 
     function setLastSnap() {
         lastSnap = (new Date()).getTime();
-    }();
+    };
+    setLastSnap();
     
     function syncValToXCreator(snap) {
         return function(event) {
