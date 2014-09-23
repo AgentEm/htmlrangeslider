@@ -34,15 +34,14 @@ body {
 }
 .slider, .range-fill {
 	position: absolute;
+	left:0;
 }
 
 .slider {
-	left: 0;
 	width: 100%;
 }
 
 .range-fill {
-	left: 0;
 	background-color: orange;
 	height: 16px;
 	pointer-events: none;
@@ -52,6 +51,7 @@ body {
 input[type=range] {
 	-webkit-appearance: none;
 	-webkit-flex-basis: 100%;
+	-webkit-tap-highlight-color: transparent;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
