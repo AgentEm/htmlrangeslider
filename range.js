@@ -1,6 +1,8 @@
 $(document).ready(function(){
 	
 	var $slider = $('input[type=range]');
+    var max = parseInt($slider.attr('max'));
+    var lastChangeHandled;
  
     function convertTouchXToFraction(touchX) {
         //Figure out where it will be on the slider
@@ -9,38 +11,43 @@ $(document).ready(function(){
         return normalizedX / $slider.width();
     }
 
-
-    function setRangeFill(event) {
-        console.log("setRangeFill, val is", $slider.val());
-        if (event.which === 1 || event.which === 0){
-            var touchX = event.originalEvent.changedTouches[0].clientX;
-            var frac = convertTouchXToFraction(touchX);
+    function changeHandler(value) {
+        if (lastChangeHandled !== value) {
+            lastChangeHandled = value;
+            var frac = value / max;
             var rangeWidth = (frac * 100) + "%";
             $('.range-fill').css("width", rangeWidth);
-            $(this).val(frac * stepCount);
             $slider.hide().show(0);
         }
     }
 
     function ohSnap(event) {
-        $slider.hide().show(0);
+        //Get the touch location
+        var touchX = event.originalEvent.changedTouches[0].clientX;
+        var frac = convertTouchXToFraction(touchX);
 
-        // Get the max
-        if(event.type === 'touchend') {
-            //Get the touch location
-            var touchX = event.originalEvent.changedTouches[0].clientX;
-            var frac = convertTouchXToFraction(touchX);
-
-            inputValue = Math.round(frac * stepCount);
-        }
+        inputValue = Math.round(frac * max);
         console.log("snap setting input", inputValue)
         $(this).val(inputValue);
-        setRangeFill(event);
     }
 
-    var stepCount = parseInt($slider.attr('max'));
+    function syncValAfterMove(event, snap) {
+        var touchX = event.originalEvent.changedTouches[0].clientX;
+        var frac = convertTouchXToFraction(touchX);
+        var inputValue;
+
+        inputValue = frac * max
+        if (snap) {
+            inputValue = Math.round(inputValue);
+        }        }
+        console.log("syncing val", inputValue)
+        $(this).val(inputValue);
+    }
+
     // Snap to closest value
-	$slider.on("touchend mousedown click", ohSnap);
+	$slider.on("touchend mouseup click", function (event) {
+        syncValAfterMove(event, "snap");
+    });
 
     // $slider.on("mousemove", function(event){
     //     console.log("mouse moved", event);
@@ -52,5 +59,5 @@ $(document).ready(function(){
     // });
 
     // Modify range-fill as ball move.
-	$slider.on("touchmove mousemove click", setRangeFill);
+	$slider.on("touchmove mousemove click", syncValAfterMove);
 });
