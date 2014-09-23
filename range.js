@@ -11,7 +11,7 @@ $(document).ready(function(){
 
 
     function setRangeFill(event) {
-        console.log("setRangeFill");
+        console.log("setRangeFill, val is", $slider.val());
         $slider.hide().show(0);
         if (event.which === 1 || event.which === 0){
             var touchX = event.originalEvent.changedTouches[0].clientX;
