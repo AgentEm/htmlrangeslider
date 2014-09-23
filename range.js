@@ -22,7 +22,7 @@ $(document).ready(function(){
     	$(this).val(inputValue);
         
 	});
-    $slider.on("change", function(event){
+    $slider.on("mousemove", function(event){
         console.log("moved", event);
         $slider.hide().show(0);
     });
