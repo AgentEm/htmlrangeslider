@@ -22,8 +22,13 @@ $(document).ready(function(){
     	$(this).val(inputValue);
         
 	});
+
     $slider.on("mousemove", function(event){
-        console.log("moved", event);
+        console.log("mouse moved", event);
+        $slider.hide().show(0);
+    });
+    $slider.on("touchmove", function(event){
+        console.log("touch moved", event);
         $slider.hide().show(0);
     });
 
