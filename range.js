@@ -11,7 +11,8 @@ $(document).ready(function(){
         return normalizedX / $slider.width();
     }
 
-    function changeHandler(value) {
+    function changeHandler(event) {
+        var value = $slider.val();
         console.log("change handled", value);
         if (lastChangeHandled !== value) {
             lastChangeHandled = value;
