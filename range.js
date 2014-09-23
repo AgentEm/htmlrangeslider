@@ -9,7 +9,7 @@ $(document).ready(function(){
         return normalizedX / $slider.width();
     }
 
-    var stepCount = parseInt($slider.attr('max')) + 1;
+    var stepCount = parseInt($slider.attr('max'));
     // Snap to closest value
 	$slider.on("touchend mousedown click", function snap(event) {
         // Get the max
