@@ -23,7 +23,7 @@ $(document).ready(function(){
         }
     }
 
-    function syncValHandlerCreator(snap) {
+    function syncValToXCreator(snap) {
         return function(event) {
             if (event.which === 1 || event.which === 0) {
                 var touchX = event.originalEvent.clientX || event.originalEvent.changedTouches[0].clientX;
@@ -43,7 +43,7 @@ $(document).ready(function(){
     }
 
     // Snap to closest value
-	$slider.on("touchend mouseup click", syncValHandlerCreator("snap"));
+	$slider.on("touchend mouseup click", syncValToXCreator("snap"));
 
     // $slider.on("mousemove", function(event){
     //     console.log("mouse moved", event);
