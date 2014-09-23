@@ -22,10 +22,10 @@ $(document).ready(function(){
     	$(this).val(inputValue);
         
 	});
-    $slider.on("touchmove", function(event){
+    $slider.on("change", function(event){
         $slider.hide().show(0);
     });
-    
+
 	$slider.on("touchend mousemove click", function(event){
 	  if (event.which === 1 || event.which === 0){
 	    var maxValue = $slider.attr('max');
