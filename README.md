@@ -1,4 +1,4 @@
-htmlrangeslider
+HTML5 Range Slider
 ===============
 
 A slider made using input type=range, CSS, and jQuery without jQuery UI
