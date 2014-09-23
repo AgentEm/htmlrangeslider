@@ -9,8 +9,7 @@ $(document).ready(function(){
 
 	$slider.on("touchend mousemove click", function(event){
 	  $slider.hide().show(0);
-        console.log(event);
-	  if (event.which === 1 || event.which === 0){
+	  if (event.which === 1){
 	    var maxValue = $slider.prop('max');
 	    var $this = $(this);
 	    var rangeWidth = ($this.val() / maxValue * 100) + "%";
@@ -18,3 +17,6 @@ $(document).ready(function(){
 	  }
 	});
 });
+
+
+// || event.which === 0
