@@ -18,6 +18,7 @@ $(document).ready(function(){
             var frac = convertTouchXToFraction(touchX);
             var rangeWidth = (frac * 100) + "%";
             $('.range-fill').css("width", rangeWidth);
+            $(this).val(frac * stepCount);
 
         }
     }
