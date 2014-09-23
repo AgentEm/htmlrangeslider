@@ -29,6 +29,8 @@ $(document).ready(function(){
     };
     setLastSnap();
 
+    var touchRegexp = /^touch/;
+
     function syncValToXCreator(snap) {
         return function(event) {
             var epoch = (new Date()).getTime();
@@ -39,7 +41,7 @@ $(document).ready(function(){
             var throttleMs = 400;
             console.log("timeDiff", timeDiff)
             if (timeDiff > throttleMs &&
-                  (event.which === 1 || event.which === 0)) {
+                  (event.which === 1 || touchRegexp.test(event.type))) {
 
                 console.log("move event", event)
                 var touchX = event.originalEvent.clientX || event.originalEvent.changedTouches[0].clientX;
