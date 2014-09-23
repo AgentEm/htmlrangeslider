@@ -1,6 +1,8 @@
 HTML5 Range Slider
 ===============
 
+![a preview of the range slider](http://i.imgur.com/G9uEj4A.png "rangeslider")
+
 A slider made using input type=range, CSS, and jQuery without jQuery UI
 
 *NOTE*: A work in progress, currently only confirmed support for Chrome and Safari desktop, and Safari mobile. 
