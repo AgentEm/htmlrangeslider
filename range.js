@@ -26,6 +26,7 @@ $(document).ready(function(){
     function syncValToXCreator(snap) {
         return function(event) {
             if (event.which === 1 || event.which === 0) {
+                console.log("move event", event)
                 var touchX = event.originalEvent.clientX || event.originalEvent.changedTouches[0].clientX;
                 var frac = convertTouchXToFraction(touchX);
                 var inputValue;
