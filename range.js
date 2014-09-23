@@ -23,16 +23,16 @@ $(document).ready(function(){
         
 	});
 
-    $slider.on("mousemove", function(event){
-        console.log("mouse moved", event);
-        $slider.hide().show(0);
-    });
-    $slider.on("touchmove", function(event){
-        console.log("touch moved", event);
-        $slider.hide().show(0);
-    });
+    // $slider.on("mousemove", function(event){
+    //     console.log("mouse moved", event);
+    //     $slider.hide().show(0);
+    // });
+    // $slider.on("touchmove", function(event){
+    //     console.log("touch moved", event);
+    //     $slider.hide().show(0);
+    // });
 
-	$slider.on("touchend mousemove click", function(event){
+	$slider.on("touchmove mousemove click", function(event){
       $slider.hide().show(0);
 	  if (event.which === 1 || event.which === 0){
 	    var maxValue = $slider.attr('max');
