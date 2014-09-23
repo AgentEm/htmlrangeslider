@@ -23,25 +23,27 @@ $(document).ready(function(){
         }
     }
 
-    function syncValCreator(snap) {
+    function syncValHandlerCreator(snap) {
         return function(event) {
-            var touchX = event.originalEvent.clientX || event.originalEvent.changedTouches[0].clientX;
-            var frac = convertTouchXToFraction(touchX);
-            var inputValue;
+            if (event.which === 1 || event.which === 0) {
+                var touchX = event.originalEvent.clientX || event.originalEvent.changedTouches[0].clientX;
+                var frac = convertTouchXToFraction(touchX);
+                var inputValue;
 
-            inputValue = frac * max
-            if (snap) {
-                inputValue = Math.round(inputValue);
+                inputValue = frac * max
+                if (snap) {
+                    inputValue = Math.round(inputValue);
+                }
+                // console.log("syncing val", inputValue)
+                $slider.val(inputValue);
+                // jQuery does not trigger change for non-user interactions.
+                changeHandler(event);
             }
-            // console.log("syncing val", inputValue)
-            $slider.val(inputValue);
-            // jQuery does not trigger change for non-user interactions.
-            changeHandler(event);
         }
     }
 
     // Snap to closest value
-	$slider.on("touchend mouseup click", syncValCreator("snap"));
+	$slider.on("touchend mouseup click", syncValHandlerCreator("snap"));
 
     // $slider.on("mousemove", function(event){
     //     console.log("mouse moved", event);
@@ -53,5 +55,5 @@ $(document).ready(function(){
     // });
 
     // Modify range-fill as ball move.
-	$slider.on("touchmove mousemove click", syncValCreator());
+	$slider.on("touchmove mousemove click", syncValHandlerCreator());
 });
