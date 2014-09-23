@@ -32,7 +32,7 @@ $(document).ready(function(){
         if (snap) {
             inputValue = Math.round(inputValue);
         }
-        console.log("syncing val", inputValue)
+        // console.log("syncing val", inputValue)
         $(this).val(inputValue);
     }
 
