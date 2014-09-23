@@ -22,7 +22,7 @@ $(document).ready(function(){
     }
 
     function syncValAfterMove(event, snap) {
-        var touchX = event.originalEvent.changedTouches[0].clientX;
+        var touchX = event.originalEvent.clientX || event.originalEvent.changedTouches[0].clientX;
         var frac = convertTouchXToFraction(touchX);
         var inputValue;
 
