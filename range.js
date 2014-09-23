@@ -2,7 +2,7 @@ $(document).ready(function(){
 	
 	var $slider = $('input[type=range]');
 
-	$slider.on("mousedown click", function() {
+	$slider.on("touchend mousedown click", function() {
 	    var $this = $(this);
 	    $(this).val(parseInt(Math.round($this.val())));
 	});
