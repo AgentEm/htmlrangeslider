@@ -52,6 +52,7 @@ input[type=range] {
 	-webkit-appearance: none;
 	-webkit-flex-basis: 100%;
 	-webkit-tap-highlight-color: transparent;
+	cursor:pointer;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
