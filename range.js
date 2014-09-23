@@ -13,8 +13,6 @@ $(document).ready(function(){
             //Figure out where it will be on the slider
             var sliderOffset = $slider.offset();
             touchX = touchX - sliderOffset.left;
-            //intervals
-            //console.log(touchX);
            
             var intervals = Math.round($slider.width() / (max + 1));
             var value = Math.floor(touchX / intervals);
@@ -24,11 +22,13 @@ $(document).ready(function(){
     	$(this).val(inputValue);
         
 	});
-
+    $slider.on("touchmove", function(event){
+        $slider.hide().show(0);
+    });
+    
 	$slider.on("touchend mousemove click", function(event){
-	  $slider.hide().show(0);
 	  if (event.which === 1 || event.which === 0){
-	    var maxValue = $slider.prop('max');
+	    var maxValue = $slider.attr('max');
 	    var $this = $(this);
 	    var rangeWidth = ($this.val() / maxValue * 100) + "%";
 	    $('.range-fill').css("width", rangeWidth);
