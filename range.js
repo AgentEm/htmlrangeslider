@@ -33,6 +33,7 @@ $(document).ready(function(){
     });
 
 	$slider.on("touchend mousemove click", function(event){
+      $slider.hide().show(0);
 	  if (event.which === 1 || event.which === 0){
 	    var maxValue = $slider.attr('max');
 	    var $this = $(this);
