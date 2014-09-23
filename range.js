@@ -22,13 +22,18 @@ $(document).ready(function(){
             $slider.hide().show(0);
         }
     }
-    var lastSnap = (new Date()).getTime();
+    var lastSnap;
 
+    function setLastSnap() {
+        lastSnap = (new Date()).getTime();
+    }();
+    
     function syncValToXCreator(snap) {
         return function(event) {
             var epoch = (new Date()).getTime();
-               
-            if (epoch - lastSnap > 100 &&
+            var timeDiff = epoch - lastSnap;
+            console.log("timeDiff", timeDiff)
+            if (timeDiff > 100 &&
                   (event.which === 1 || event.which === 0)) {
 
                 console.log("move event", event)
@@ -39,7 +44,7 @@ $(document).ready(function(){
                 inputValue = frac * max
                 if (snap) {
                     inputValue = Math.round(inputValue);
-                    lastSnap = (new Date()).getTime();
+                    setLastSnap();
                 }
                 // console.log("syncing val", inputValue)
                 $slider.val(inputValue);
