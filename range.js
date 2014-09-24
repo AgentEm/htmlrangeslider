@@ -34,9 +34,10 @@ $(document).ready(function(){
         }
         if (lastChangeHandled !== value) {
             lastChangeHandled = value;
+            console.log(value);
             var frac = value / max;
             var rangeWidth = (frac * 100) + "%";
-            $('.range-fill').css({"width": rangeWidth, "min-width": "5%", "max-width": "98%"});
+            $('.range-fill').css({"width": rangeWidth, "min-width": "3%", "max-width": "98%"});
             $slider.hide().show(0);
         }
     }
