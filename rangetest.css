@@ -104,7 +104,7 @@ input[type=range]:focus {
 	}
 	.range-fill {
 		border-radius: 20px;
-		height: 40px;
+		height: 36px;
 	}
 	input[type=range]::-webkit-slider-thumb {
 		width: 6rem;

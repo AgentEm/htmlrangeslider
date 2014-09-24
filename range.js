@@ -13,7 +13,25 @@ $(document).ready(function(){
 
     function changeHandler(event) {
         var value = $slider.val();
-
+        if (value === "0") {
+            $(".label").css("color", "grey");
+            $(".label:nth-child(1)").css("color", "orange");
+        } else if (value === "1") {
+            $(".label").css("color", "grey");
+            $(".label:nth-child(2)").css("color", "orange");
+        } else if (value === "2") {
+            $(".label").css("color", "grey");
+            $(".label:nth-child(3)").css("color", "orange");
+        } else if (value === "3") {
+            $(".label").css("color", "grey");
+            $(".label:nth-child(4)").css("color", "orange");
+        } else if (value === "4") {
+            $(".label").css("color", "grey");
+            $(".label:nth-child(5)").css("color", "orange");
+        } else if (value === "5") {
+            $(".label").css("color", "grey");
+            $(".label:nth-child(6)").css("color", "orange");
+        }
         if (lastChangeHandled !== value) {
             lastChangeHandled = value;
             var frac = value / max;
@@ -61,7 +79,9 @@ $(document).ready(function(){
 
     // Snap to closest value
 	$slider.on("touchend mouseup click", syncValToXCreator("snap"));
+    $(".label").on("touchend mouseup click", syncValToXCreator("snap"));
 
     // Modify range-fill as ball move.
 	$slider.on("touchmove mousemove click", syncValToXCreator());
+    $(".label").on("touchend mouseup click", syncValToXCreator("snap"));
 });
