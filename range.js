@@ -15,22 +15,22 @@ $(document).ready(function(){
         var value = $slider.val();
         if (value === "0") {
             $(".label").css("color", "grey");
-            $(".label:nth-child(1)").css("color", "orange");
+            $(".label:nth-child(1)").css("color", "#f36f21");
         } else if (value === "1") {
             $(".label").css("color", "grey");
-            $(".label:nth-child(2)").css("color", "orange");
+            $(".label:nth-child(2)").css("color", "#f36f21");
         } else if (value === "2") {
             $(".label").css("color", "grey");
-            $(".label:nth-child(3)").css("color", "orange");
+            $(".label:nth-child(3)").css("color", "#f36f21");
         } else if (value === "3") {
             $(".label").css("color", "grey");
-            $(".label:nth-child(4)").css("color", "orange");
+            $(".label:nth-child(4)").css("color", "#f36f21");
         } else if (value === "4") {
             $(".label").css("color", "grey");
-            $(".label:nth-child(5)").css("color", "orange");
+            $(".label:nth-child(5)").css("color", "#f36f21");
         } else if (value === "5") {
             $(".label").css("color", "grey");
-            $(".label:nth-child(6)").css("color", "orange");
+            $(".label:nth-child(6)").css("color", "#f36f21");
         }
         if (lastChangeHandled !== value) {
             lastChangeHandled = value;

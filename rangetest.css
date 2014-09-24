@@ -62,7 +62,7 @@ input[type=range] {
 input[type=range]::-webkit-slider-runnable-track {
     width: 10rem;
     height: 1rem;
-    background: transparent; /*WAS WHITE*/
+    background: transparent;
     border: 2px solid #f36f21;
     border-radius: 10px;
 }
@@ -110,7 +110,6 @@ input[type=range]:focus {
 	input[type=range]::-webkit-slider-thumb {
 		width: 6rem;
 		height: 6rem;
-		margin-top: -1.5rem;
 	}
 	input[type=range]::-webkit-slider-runnable-track {
 		width: 10rem;
