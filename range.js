@@ -13,12 +13,31 @@ $(document).ready(function(){
 
     function changeHandler(event) {
         var value = $slider.val();
-        console.log("change handled", value);
+        if (value === "0") {
+            $(".label").css("color", "grey");
+            $(".label:nth-child(1)").css("color", "#f36f21");
+        } else if (value === "1") {
+            $(".label").css("color", "grey");
+            $(".label:nth-child(2)").css("color", "#f36f21");
+        } else if (value === "2") {
+            $(".label").css("color", "grey");
+            $(".label:nth-child(3)").css("color", "#f36f21");
+        } else if (value === "3") {
+            $(".label").css("color", "grey");
+            $(".label:nth-child(4)").css("color", "#f36f21");
+        } else if (value === "4") {
+            $(".label").css("color", "grey");
+            $(".label:nth-child(5)").css("color", "#f36f21");
+        } else if (value === "5") {
+            $(".label").css("color", "grey");
+            $(".label:nth-child(6)").css("color", "#f36f21");
+        }
         if (lastChangeHandled !== value) {
             lastChangeHandled = value;
+            console.log(value);
             var frac = value / max;
             var rangeWidth = (frac * 100) + "%";
-            $('.range-fill').css("width", rangeWidth);
+            $('.range-fill').css({"width": rangeWidth, "min-width": "3%", "max-width": "98%"});
             $slider.hide().show(0);
         }
     }
@@ -39,11 +58,9 @@ $(document).ready(function(){
             // This is required because on iPad you get:
             //  touchEnd -> 300ms delay -> mouseMove
             var throttleMs = 400;
-            console.log("timeDiff", timeDiff)
             if (timeDiff > throttleMs &&
                   (event.which === 1 || touchRegexp.test(event.type))) {
 
-                console.log("move event", event)
                 var touchX = event.originalEvent.clientX || event.originalEvent.changedTouches[0].clientX;
                 var frac = convertTouchXToFraction(touchX);
                 var inputValue;
@@ -53,7 +70,7 @@ $(document).ready(function(){
                     inputValue = Math.round(inputValue);
                     setLastSnap();
                 }
-                // console.log("syncing val", inputValue)
+
                 $slider.val(inputValue);
                 // jQuery does not trigger change for non-user interactions.
                 changeHandler(event);
@@ -63,16 +80,9 @@ $(document).ready(function(){
 
     // Snap to closest value
 	$slider.on("touchend mouseup click", syncValToXCreator("snap"));
-
-    // $slider.on("mousemove", function(event){
-    //     console.log("mouse moved", event);
-    //     $slider.hide().show(0);
-    // });
-    // $slider.on("touchmove", function(event){
-    //     console.log("touch moved", event);
-    //     $slider.hide().show(0);
-    // });
+    $(".label").on("touchend mouseup click", syncValToXCreator("snap"));
 
     // Modify range-fill as ball move.
 	$slider.on("touchmove mousemove click", syncValToXCreator());
+    $(".label").on("touchend mouseup click", syncValToXCreator("snap"));
 });
