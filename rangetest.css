@@ -46,6 +46,8 @@ body {
 	height: 16px;
 	pointer-events: none;
 	border-radius: 10px;
+	min-width:5%;
+	max-width:98%;
 }
 
 input[type=range] {
