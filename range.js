@@ -13,25 +13,6 @@ $(document).ready(function(){
 
     function changeHandler(event) {
         var value = $slider.val();
-        if (value === "0") {
-            $(".label").css("color", "grey");
-            $(".label:nth-child(1)").css("color", "#f36f21");
-        } else if (value === "1") {
-            $(".label").css("color", "grey");
-            $(".label:nth-child(2)").css("color", "#f36f21");
-        } else if (value === "2") {
-            $(".label").css("color", "grey");
-            $(".label:nth-child(3)").css("color", "#f36f21");
-        } else if (value === "3") {
-            $(".label").css("color", "grey");
-            $(".label:nth-child(4)").css("color", "#f36f21");
-        } else if (value === "4") {
-            $(".label").css("color", "grey");
-            $(".label:nth-child(5)").css("color", "#f36f21");
-        } else if (value === "5") {
-            $(".label").css("color", "grey");
-            $(".label:nth-child(6)").css("color", "#f36f21");
-        }
         if (lastChangeHandled !== value) {
             lastChangeHandled = value;
             console.log(value);
@@ -69,6 +50,7 @@ $(document).ready(function(){
                 if (snap) {
                     inputValue = Math.round(inputValue);
                     setLastSnap();
+                    $slider.trigger("shp.snap", [inputValue]);
                 }
 
                 $slider.val(inputValue);
@@ -77,6 +59,10 @@ $(document).ready(function(){
             }
         }
     }
+    $slider.on("shp.snap", function(event, value){
+        $(".label").css("color", "grey");
+        $(".label:nth-child(" + (value + 1) + ")").css("color", "#f36f21");
+    });
 
     // Snap to closest value
 	$slider.on("touchend mouseup click", syncValToXCreator("snap"));
